@@ -4,6 +4,8 @@ import pool from './db.js';
 
 dotenv.config();
 
+const hello = 'hello'
+
 const app = express();
 
 app.use(express.json());
