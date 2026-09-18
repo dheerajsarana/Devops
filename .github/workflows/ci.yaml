@@ -6,6 +6,9 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "project 3/api"
 
     steps:
       - name: Checkout code
