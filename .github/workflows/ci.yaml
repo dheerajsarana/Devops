@@ -27,6 +27,4 @@ jobs:
       - name: Lint check
         run: npm run lint
 
-  deploy:
-    runs-on: ubuntu-latest
 
