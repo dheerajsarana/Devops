@@ -4,8 +4,6 @@ import pool from './db.js';
 
 dotenv.config();
 
-const unusedVariable = "hello";
-
 const app = express();
 
 app.use(express.json());
