@@ -42,7 +42,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build docker image
         run: |
@@ -59,7 +59,7 @@ jobs:
           usernam: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_KEY }}
           scripts: |
-            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GH_TOKEN }}
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
             docker pull ghcr.io/${{ github.repository }}:${{ github.sha }}
 
             docker run -d --name node-app -p 3000:3000 gchr.io/${{ github.repository }}:${{github}}
