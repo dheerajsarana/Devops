@@ -46,11 +46,11 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}:${{ github.sha }} .
+          docker build -t ghcr.io/${{ github.repository_owner }}/devops:${{ github.sha }} .
 
       - name: Push docker image
         run: |
-          docker push ghcr.io/${{ github.repository }}:${{github.sha }}
+          docker push ghcr.io/${{ github.repository_owner }}/devops:${{github.sha }}
 
       - name: Deploying to EC2
         uses: appleboy/ssh-action@v1.2.0
@@ -60,6 +60,6 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           scripts: |
             docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
-            docker pull ghcr.io/${{ github.repository }}:${{ github.sha }}
+            docker pull ghcr.io/${{ github.repository_owner }}/devops:${{ github.sha }}
 
             docker run -d --name node-app -p 3000:3000 gchr.io/${{ github.repository }}:${{github}}
