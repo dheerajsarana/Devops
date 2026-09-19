@@ -66,4 +66,4 @@ jobs:
             docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
             docker pull ghcr.io/${{ github.repository_owner }}/devops:${{ github.sha }}
 
-            docker run -d --name node-app -p 3000:3000 gchr.io/${{ github.repository_owner }}/devops:${{github.sha}}
+            docker run -d --name node-app -p 3000:3000 ghcr.io/${{ github.repository_owner }}/devops:${{github.sha}}
